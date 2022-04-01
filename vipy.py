@@ -8,7 +8,6 @@ def vipy(X, y, ncomponents):
     pls = PLSRegression(n_components=ncomponents)
     (xscrs, yscrs) = pls.fit_transform(X, y)
     xw = pls.x_weights_
-    xlds = pls.x_loadings_
     b = np.linalg.pinv(xscrs) @ y
     xw = (xw / np.linalg.norm(xw, axis=0)) ** 2
     sz = np.size(X, 1)
